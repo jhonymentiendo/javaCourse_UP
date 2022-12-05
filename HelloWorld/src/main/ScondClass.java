@@ -3,178 +3,216 @@ package main;
 public class ScondClass {
 
 	public static void main(String[] args) {
-
-		numberToWords(21563);
-
+		System.out.println(canPack(2,1,5));
 	}
-
-	 public static int reverse(int number){
-	        int resp=0;
-	        int temp=number;
-	        
-	        while(temp!=0){
-	                resp = resp + temp%10;
-	                resp*=10;
-	            temp/=10;
-	        }
-	            
-	        return resp;
-	    }
-	    
-	    
-	    public static void numberToWords(int number){
-	        String resp="";
-	        int reversenumber = reverse(number);
-	        
-	        System.out.println(reversenumber);
-	        
-	        int temp=reversenumber , tempdigit;
-	        
-	        
-	        while(temp!=0){
-	            tempdigit = temp % 10;
-	            System.out.println(tempdigit);
-	            switch(tempdigit){
-	        
-	        case 1:{
-	        		resp = resp + " one";
-	        		break;
-	        		}
-	        case 2:{
-	        		resp = resp + " two";
-	        		break;
-	        		}
-	        case 3:{
-	        		resp = resp + " three";
-	        		break;
-	        		}
-	        case 4:{
-	        		resp = resp + " four";
-	        		break;
-	        		}
-	        case 5:{
-	        		resp = resp + " five";
-	        		break;
-	        		}
-	        case 6:{
-	        		resp = resp + " six";
-	        		break;
-	        		}
-	        case 7:{
-	        		resp = resp + " seven";
-	        		break;
-	        		}
-	        case 8:{
-	        		resp = resp + " eight";
-	        		break;
-	        		}
-	        case 9:{
-	        		resp = resp + " nine";
-	        		break;
-	        		}
-	        /*case 0:{
-        		resp = resp + " Zero";
-        		break;
-        		}*/
-	                    }
-	                    
-	                    temp /= 10;
-	                }
-	        
-	        
-	        
-	        System.out.println(resp);
-	    }
 	
+	public static void printSquareStar(int number){
+		String resp = "";
+		
+		
+		System.out.println(resp);
+	}
 	
-	
-	
-	
-	public static int getGreatestCommonDivisor(int first,int second){
-        int resp =-1;
-        int limit = 10;
-        int temp1=1,temp2=1;
-        
-        if(first>=limit && second>=limit){
-        	
-            while(temp1<=first) {
-            	temp2=1;
-            	while(temp2<=second) {
-            		System.out.println(temp1 + " - " + temp2);
-            		if(temp1 == temp2 && first%temp1 ==0 && second%temp2==0){
-            			resp = temp2;
-            		}
-            		temp2++;
-            	}
-            	temp1++;	
-            }
-        	
-        	
+	public static int getLargestPrime(int number){
+        int resp = -1;
+        if(number>1){    
+            while(resp<=number){
+                //resp =  
+            }   
         }
-        
         return resp;
     }
 	
 	
+
+	public static boolean canPack(int bigCount,int smallCount,int  goal ){
+        boolean resp = false;
+        int bolsasIndivisibles = bigCount * 5;
+        int resto =0;
+        
+        if(bigCount>=0 && smallCount >=0 && goal>=0){
+        	resto = goal-bolsasIndivisibles;
+        	if(resto >= 0 ){
+        		resp = smallCount >= goal;
+        	}
+        }
+        return resp;
+    }
+	
+	
+	public static int getDigitCount(int number) {
+		int resp; 
+		
+			resp = number < 0 ? -1 : (new String(""+number)).length() ;
+			
+		return resp;
+	}
+	
+	
+	public static int reverse(int number) {
+		int resp = 0;
+		int temp = number;
+		
+		while (temp != 0) {
+			
+			resp = resp + temp % 10;
+			resp *= 10;	
+			temp /= 10;
+			
+		}
+		resp /= 10;
+		
+		return resp;
+	}
+
+	public static void numberToWords(int number) {
+		String resp = "Invalid Value";
+		int reversenumber = reverse(number);
+		//int digitcount = getDigitCount(number);
+		int temp = reversenumber, tempdigit;
+
+        if(number>=0){
+        	resp = "";
+        for (int i = 0; i < getDigitCount(number); i++) {
+		    
+			tempdigit = temp % 10;
+			switch (tempdigit) {
+
+			case 1: {
+				resp = resp + "One ";
+				break;
+			}
+			case 2: {
+				resp = resp + "Two ";
+				break;
+			}
+			case 3: {
+				resp = resp + "Three ";
+				break;
+			}
+			case 4: {
+				resp = resp + "Four ";
+				break;
+			}
+			case 5: {
+				resp = resp + "Five ";
+				break;
+			}
+			case 6: {
+				resp = resp + "Six ";
+				break;
+			}
+			case 7: {
+				resp = resp + "Seven ";
+				break;
+			}
+			case 8: {
+				resp = resp + "Eight ";
+				break;
+			}
+			case 9: {
+				resp = resp + "Nine ";
+				break;
+			}
+			case 0: {
+				resp = resp + "Zero ";
+				break;
+			}
+			default: {
+				break;
+			}
+			}
+			temp /= 10;
+
+		}
+        }
+
+		System.out.println(resp);
+	}
+
+	public static int getGreatestCommonDivisor(int first, int second) {
+		int resp = -1;
+		int limit = 10;
+		int temp1 = 1, temp2 = 1;
+
+		if (first >= limit && second >= limit) {
+
+			while (temp1 <= first) {
+				temp2 = 1;
+				while (temp2 <= second) {
+					System.out.println(temp1 + " - " + temp2);
+					if (temp1 == temp2 && first % temp1 == 0 && second % temp2 == 0) {
+						resp = temp2;
+					}
+					temp2++;
+				}
+				temp1++;
+			}
+
+		}
+
+		return resp;
+	}
+
 	public static boolean isValid(int num) {
 		int rango1 = 10, rango2 = 1000;
 		return num >= rango1 && num <= rango2;
 	}
-	
+
 	public static boolean hasSameLastDigit2(int num1, int num2, int num3) {
 		boolean resp = false;
-		
+
 		int tem1 = num1, tem2 = num2, tem3 = num3;
 		int cifra1 = 0, cifra2 = 0, cifra3 = 0;
-		
 
 		if (isValid(num1) && isValid(num2) && isValid(num3)) {
-			cifra1 = tem1%10;
-			cifra2 = tem2%10;
-			cifra3 = tem3%10;
-			
-			if (cifra1 ==cifra2 || cifra2==cifra3 || cifra3==cifra1 ) {
+			cifra1 = tem1 % 10;
+			cifra2 = tem2 % 10;
+			cifra3 = tem3 % 10;
+
+			if (cifra1 == cifra2 || cifra2 == cifra3 || cifra3 == cifra1) {
 				resp = true;
-				}
-			
+			}
+
 		}
 		return resp;
 	}
-	
+
 	public static boolean hasSameLastDigit(int num1, int num2, int num3) {
 		boolean resp = false;
-		
+
 		int tem1 = num1, tem2 = num2, tem3 = num3;
 		int cifra1 = 0, cifra2 = 0, cifra3 = 0;
-		boolean isRigtmost1=true,isRigtmost2=true,isRigtmost3=true;
+		boolean isRigtmost1 = true, isRigtmost2 = true, isRigtmost3 = true;
 
 		if (isValid(num1) && isValid(num2) && isValid(num3)) {
 			while (tem1 != 0) {
 				cifra1 = tem1 % 10;
 				tem2 = num2;
-				if(isRigtmost1) {
-					
-					
-				while (tem2 != 0) {
-					cifra2 = tem2 % 10;
-					tem3 = num3;
-					if(isRigtmost2) {
-						
-					while (tem3 != 0) {
-						cifra3 = tem3 % 10;
-						if(isRigtmost3) {
-							if (cifra1 ==cifra2 || cifra2==cifra3 || cifra3==cifra1 ) {
-								resp = true;
+				if (isRigtmost1) {
+
+					while (tem2 != 0) {
+						cifra2 = tem2 % 10;
+						tem3 = num3;
+						if (isRigtmost2) {
+
+							while (tem3 != 0) {
+								cifra3 = tem3 % 10;
+								if (isRigtmost3) {
+									if (cifra1 == cifra2 || cifra2 == cifra3 || cifra3 == cifra1) {
+										resp = true;
+									}
+									isRigtmost3 = false;
 								}
-							isRigtmost3=false;
+
+								tem3 /= 10;
+							}
+							isRigtmost2 = false;
 						}
-							
-						tem3 /= 10;
+						tem2 /= 10;
 					}
-					isRigtmost2=false;}
-					tem2 /= 10;
+					tem1 = 0;
 				}
-				tem1=0;}
 			}
 		}
 		return resp;
