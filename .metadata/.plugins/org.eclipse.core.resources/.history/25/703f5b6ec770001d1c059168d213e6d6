@@ -1,0 +1,139 @@
+package main;
+
+public class ScondClass {
+
+	public static void main(String[] args) {
+
+		System.out.println(isPalindrome(123456789));
+
+	}
+	
+	public static int getEvenDigitSum(int number){
+        int resp =0,temp=number,numsuma=0;
+        
+        if(number<0){
+            resp = -1;   
+            }else{
+                while (temp != 0){
+                    numsuma = temp%10;
+                temp /=  10;
+                if(numsuma % 2 == 0){
+                    resp +=numsuma;
+                }
+            }    
+        }
+        return resp;
+    }
+	
+	public static int sumFirstAndLastDigit(int number) {
+	    int fn=number,ln=number,resp =0;
+	    
+	    if(number<0){
+	     resp = -1;   
+	    }else{
+	     while (fn >= 10)
+			fn /= 10;
+	    
+	    ln = (ln % 10);
+	    resp = fn + ln;
+	    }
+		return resp;
+	}
+	
+	public static boolean isPalindrome(int number){
+	     
+	     int reversenumber = 0;
+	      int temp = number;
+	        //resp = number<0 ? true : ()
+	        
+	        
+	        
+	    
+			while (temp != 0) {
+				reversenumber = (reversenumber * 10) + (temp % 10);
+			temp = temp / 10;
+			
+			System.out.println("\nreversenumber:"+reversenumber);
+			System.out.println("\ntemp:"+temp);
+			
+			
+			}
+	        
+	        
+	     return reversenumber==number;
+	     
+	 }
+	
+	public static double area(double radius){
+        double resp;
+            resp = radius<0 ? -1.0 : ((3.1416*radius)*(3.1416*radius));
+        return resp;
+    }
+    
+    public static double area(double x,double y){
+        double resp;
+            resp = (x < 0 || y < 0) ? -1.0 : x*y;
+        return resp;
+    }
+
+	 public static boolean isLeapYear(int year){
+	     
+	     return (year<0) ? false: (((year % 4 == 0) && (year % 100!= 0)) || (year%400 == 0));
+	     
+	 }
+	 
+public static boolean isLeapYear(double year){
+	     
+	     return (year<0) ? false: (((year % 4 == 0) && (year % 100!= 0)) || (year%400 == 0));
+	     
+	 }
+	 
+	 
+	public static boolean shouldWakeUp(boolean barking,int hourOfDay){
+	     //We have to wake up if the dog is barking before 8 or after 22 hours so in that case return true.
+	     boolean resp = false;
+	     
+	     if(barking && hourOfDay<24 && hourOfDay>=0){
+	         resp = hourOfDay<8 || hourOfDay>22;
+	     }
+	     
+	     return resp;
+	 }
+	
+	public static void checkNumber(int number) {
+		String resp = "";
+
+		resp = (number == 0) ? "zero" : (number > 0 ? "positive" : "negative");
+
+		System.out.println(resp);
+
+	}
+	
+	 public static void printMegaBytesAndKiloBytes(int kiloBytes){
+	        String resp="Invalid Value";
+	        int XX=0,YY=0,ZZ=0;
+	        
+	        if(kiloBytes>=0){
+	            XX = kiloBytes;
+	            YY = XX / 1024;
+	            ZZ = XX % 1024;
+	            
+	            resp = XX + " KB = "+YY+" MB and "+ZZ+" KB";    
+	            
+	        }
+	        
+	        System.out.println(resp);
+	        
+	    }
+
+	public static long toMilesPerHour(double kilometersPerHour) {
+		long resp = (long) (kilometersPerHour < 0 ? -1 : Math.round(kilometersPerHour / 1.609));
+		return resp;
+	}
+
+	public static void printConversion(double kilometersPerHour) {
+		System.out.println(kilometersPerHour < 0 ? "Invalid Value"
+				: kilometersPerHour + " km/h = " + toMilesPerHour(kilometersPerHour) + " mi/h");
+	}
+
+}

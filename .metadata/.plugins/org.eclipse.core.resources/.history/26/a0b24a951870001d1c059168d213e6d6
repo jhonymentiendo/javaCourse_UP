@@ -1,0 +1,28 @@
+package main;
+
+public class ScondClass {
+	
+public static void main(String[] args){
+        
+	toMilesPerHour(25.42);
+        
+    }
+    
+    public static void checkNumber(int number){
+        String resp = "";
+        
+        resp = (number==0) ? "zero" : (number>0? "positive" : "negative" );
+        
+        System.out.println(resp);
+        
+    }
+    
+    public static void toMilesPerHour(double kilometersPerHour){
+        long  resp =  (long) (kilometersPerHour<0 ? -1 : kilometersPerHour/1.609);
+        
+        System.out.println(""+resp);
+        
+        }
+    
+	
+}
