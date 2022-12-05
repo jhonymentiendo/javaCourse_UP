@@ -7,7 +7,7 @@ public class ScondClass {
 	}
 	
 	public static void printSquareStar(int number){
-		String resp = "";
+		String resp = "Invalid Value";
 		
 		
 		System.out.println(resp);
