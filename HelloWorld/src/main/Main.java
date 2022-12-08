@@ -6,25 +6,14 @@ public class Main {
 	
 	public static void main(String[] args){
 		
-		House blueHouse = new House("Blue");
-		House anotherHouse = blueHouse;
-		
-		System.out.println(blueHouse.getColor());
-		System.out.println(anotherHouse.getColor());
-		
-		
-		anotherHouse.setColor("yelloy");
-		
-		System.out.println(blueHouse.getColor());
-		System.out.println(anotherHouse.getColor());
-		
-		House greeHouse = new House("green");
-		
-		anotherHouse = greeHouse;
-		
-		System.out.println(blueHouse.getColor());
-		System.out.println(anotherHouse.getColor());
-		System.out.println(greeHouse.getColor());
+	    Carpet carpet = new Carpet(3.5);
+	    Floor floor = new Floor(2.75, 4.0);
+	    Calculator calculator = new Calculator(floor, carpet);
+	    System.out.println("total= " + calculator.getTotalCost());
+	    carpet = new Carpet(1.5);
+	    floor = new Floor(5.4, 4.5);
+	    calculator = new Calculator(floor, carpet);
+	    System.out.println("total= " + calculator.getTotalCost());
 		
 	}
 	
